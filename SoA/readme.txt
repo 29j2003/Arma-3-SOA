@@ -1,0 +1,1 @@
+this it the main folder, where all mission will be stored, aswellas the main mission itself after being merged.
