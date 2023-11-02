@@ -18,22 +18,22 @@ titleText ["<t align='center' font='PuristaBold' color='#FFFFFF' size='3' >29/P4
 
 // hier noch say3d/say hinzufügen
 sleep 3;
-["Stoka", "And?"] spawn BIS_fnc_showSubtitle;
+["Stoka", "How bad?"] spawn BIS_fnc_showSubtitle;
 
-sleep 3; 
+sleep 4; 
 
-["Kosta", "They are making a fortress out of it."] spawn BIS_fnc_showSubtitle;
+["Kosta", "More than we anticipated."] spawn BIS_fnc_showSubtitle;
 
-sleep 5;
+sleep 6;
 
-["Stoka", "Then they may know about the invasion?"] spawn BIS_fnc_showSubtitle;
+["Stoka", "Then they may be aware of the invasion."] spawn BIS_fnc_showSubtitle;
 
-sleep 3; 
+sleep 5; 
 
 
 [
 	[
-		["Savro Kosta", "align = 'left' shadow = '1' size = '0.7' font='PuristaBold'"],
+		["Savro Costa", "align = 'left' shadow = '1' size = '0.7' font='PuristaBold'"],
 		["", "<br/>"],
 		["FIA - Special Forces", "align = 'left' shadow = '1' size = '0.7' font='PuristaBold'"],
 		["", "<br/>"],
@@ -48,6 +48,7 @@ sleep 3;
 	{ false },
 	true
 ] spawn BIS_fnc_typeText2;
+sleep 1;
 
 ["Kosta", "Could be."] spawn BIS_fnc_showSubtitle;
 RC_NPC setDir ([RC_NPC, target2] call BIS_fnc_dirTo);
@@ -59,16 +60,16 @@ player enableSimulation true;
 player setDir ([player, target1] call BIS_fnc_dirTo);
 titleCut ["", "BLACK IN", 4];
 sleep 1;
-["Stoka", "Don't move - AAF bird inbound!"] spawn BIS_fnc_showSubtitle;
+["Stoka", "Stay low - AAF helo inbound."] spawn BIS_fnc_showSubtitle;
 
 5 fadeSound 1;
 sleep 6.3;
 titleText ["<t valign='middle' font='PuristaBold' color='#FFFFFF' size='4'>Siege of Kavala</t>", "PLAIN", 0.7, true, true];
 sleep 3;
 // hier noch say3d/say hinzufügen
-["Kosta", "Did it saw us?"] spawn BIS_fnc_showSubtitle;
+["Kosta", "Did it get visual on us?"] spawn BIS_fnc_showSubtitle;
 sleep 4; 
-["Stoka", "Not sure - best to wait right now. Scout a bit more in the mean time."] spawn BIS_fnc_showSubtitle;
+["Stoka", "Unlikely – though waiting a bit more shouldn’t hurt."] spawn BIS_fnc_showSubtitle;
 sleep 10; 
 ["Kosta", "I have never seen that much AAF presence in Kavala - at least not since the Civil War."] spawn BIS_fnc_showSubtitle;
 sleep 7; 
@@ -81,5 +82,6 @@ sleep 3;
 player playMove ""; 
 RC_NPC enableAI "all";
 [1, 3, false, true] call BIS_fnc_cinemaBorder;
-RCwp01 = true; 
+// RCwp01 = true; 
+sleep 2;
 saveGame; 
