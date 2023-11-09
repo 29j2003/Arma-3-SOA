@@ -55,7 +55,9 @@ sleep 1;
 
 ["Costa", "Could be."] spawn BIS_fnc_showSubtitle;
 RC_NPC setDir ([RC_NPC, target2] call BIS_fnc_dirTo);
+
 rec = [] spawn PATH_Heli;
+
 player setDir ([player, target1] call BIS_fnc_dirTo);
 sleep 7;
 disableUserInput false; 
