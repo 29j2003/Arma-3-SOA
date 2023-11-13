@@ -4,3 +4,4 @@ PATH_CAR = [[0,[3884.61,12458.8,34.3685],[-0.783431,0.621331,-0.0135333],[-0.014
 RC_CAR disableBrakes true;
 RC_CAR engineOn true;
 RC_NPC disableAI "ALL";
+

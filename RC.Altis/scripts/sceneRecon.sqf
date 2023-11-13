@@ -23,8 +23,10 @@ titleText ["<t align='center' font='PuristaBold' color='#FFFFFF' size='3' >29/P4
 sleep 3;
 ["Stoka", "How bad?"] spawn BIS_fnc_showSubtitle;
 
-sleep 4; 
+RC_lightningBolt = true;
 
+sleep 4; 
+RC_lightningBolt = false;;
 ["Costa", "More than we anticipated."] spawn BIS_fnc_showSubtitle;
 
 sleep 6;
@@ -68,9 +70,11 @@ sleep 1;
 ["Stoka", "Stay low - AAF helo inbound."] spawn BIS_fnc_showSubtitle;
 
 5 fadeSound 1;
-sleep 6.3;
-titleText ["<t valign='middle' font='PuristaBold' color='#FFFFFF' size='4'>Siege of Kavala</t>", "PLAIN", 0.7, true, true];
+sleep 5.8;
+RC_lightningBolt = true;
+titleText ["<t valign='middle' font='PuristaBold' color='#FFFFFF' size='4'>Siege of Altis</t>", "PLAIN", 0.7, true, true];
 sleep 3;
+RC_lightningBolt = false;
 // hier noch say3d/say hinzufügen
 ["Costa", "Did it get visual on us?"] spawn BIS_fnc_showSubtitle;
 sleep 4; 
@@ -88,8 +92,8 @@ player playMove "";
 RC_NPC enableAI "all";
 [1, 3, false, true] call BIS_fnc_cinemaBorder;
 
-// RCwp01 = true; // to activate the Waypoint of RC_NPC, where he moves to the car.
-// Task01 = true; // to activate the first Task 
+RC_wp01 = true; // to activate the Waypoint of RC_NPC, where he moves to the car.
+Task01 = true; // to activate the first Task 
 
 sleep 2;
 saveGame; 

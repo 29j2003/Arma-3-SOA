@@ -4,4 +4,4 @@ RC_HeliD disableAI "LIGHTS";
 RC_Heli setCollisionLight true; 
 RC_Heli setPilotLight true; 
 
-sleep 35; RC_Heli engineOn false; 
+sleep 45; RC_Heli engineOn false; 
