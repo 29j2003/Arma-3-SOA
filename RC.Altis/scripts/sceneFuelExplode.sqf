@@ -25,6 +25,10 @@ myFuelTank addEventHandler ["killed", {
 	RC_hb04 hideObject true; 
 	RC_hb05 hideObject false; 
 	RC_hb06 hideObject false; 
+	RC_hb07 hideObject true; 
+	RC_hb08 hideObject true; 
+	RC_hb09 hideObject false; 
+	RC_hb010 hideObject false; 
 	RC_scaff01 hideObject true; 
 	RC_crater01 hideObject false;
 	RC_crater02 hideObject false;
