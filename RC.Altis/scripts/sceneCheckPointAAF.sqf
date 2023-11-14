@@ -27,6 +27,23 @@ RC_Officer doTarget RC_debugTarget01;
 // RC_Task4 = true to enable next scene via trigger and task! 
 RC_Task4 = true,
 
+// This adds weapons and gear to the player when Task 4 begins
+sleep 1; 
+player addWeapon "arifle_Mk20_F";
+player addPrimaryWeaponItem "acc_flashlight";
+player addPrimaryWeaponItem "optic_ACO_grn_smg";
+player addPrimaryWeaponItem "30Rnd_556x45_Stanag";
+player addWeapon "hgun_Rook40_F";
+player addHandgunItem "muzzle_snds_L";
+player addHandgunItem "16Rnd_9x21_Mag";
+player addItemToUniform "30Rnd_556x45_Stanag";
+player addItemToUniform "30Rnd_556x45_Stanag";
+
+
+RC_Checker enableAI "all"; 
+RC_Checker setBehaviourStrong "AWARE"; 
+RC_Checker doWatch RC_debugTarget01;
+RC_Checker doTarget RC_debugTarget01;
 // Check how long the player has time to engage and shoot the officer and the barrels, adjust time if too short! 
 
 sleep 10; 
@@ -47,7 +64,7 @@ if (alive RC_Officer) then {
     // Introduce another short delay (adjust as needed)
     sleep 1;
     RC_Officer doTarget player;
-    RC_Officer fireAtTarget [player, currentWeapon RC_Officer]
+    RC_Officer fireAtTarget [player, currentWeapon RC_Officer];
 	RC_Checker enableAI "All"; 
 	
 	// end here! 
