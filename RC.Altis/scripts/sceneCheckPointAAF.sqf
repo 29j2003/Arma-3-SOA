@@ -4,6 +4,35 @@ RC_Checker disableAI "all";
 RC_Officer switchMove "Acts_PercMstpSlowWrflDnon_handup2b";
 [] spawn
 {
+
+	line1 = ["Officer", "Stop!", RC_Officer];
+	[[line1], "GUER", 0.15, false] execVM "fn_simpleConv.sqf";
+
+		sleep 03.132;
+		
+		sleep 24.5;
+	
+	line1 = ["Officer", "Okay move alo- wait.", RC_Officer];
+	[[line1], "GUER", 0.15, false] execVM "fn_simpleConv.sqf";
+
+		sleep 2;
+		
+	playMusic "LeadTrack02_F_EPB";
+	
+		sleep 2;
+
+	line1 = ["Officer", "Copy.", RC_Officer];
+	[[line1], "GUER", 0.15, false] execVM "fn_simpleConv.sqf";
+
+		sleep 4; 
+
+	line1 = ["Officer", "You two, step out of the vehicle.", RC_Officer];
+	[[line1], "GUER", 0.15, false] execVM "fn_simpleConv.sqf";
+
+};
+
+[] spawn
+{
 	sleep 03.132;
 	RC_Officer playMove "Acts_SignalToCheck";
 	sleep 24.5;
@@ -17,12 +46,16 @@ sleep 5.5;
 RC_Checker setPosATL getPosATL RC_Checker;
 RC_Checker switchMove "Acts_WalkingChecking";  
 
-sleep 35;
+sleep 37;
+
+line1 = ["Officer", "Right now!", RC_Officer];
+[[line1], "GUER", 0.15, false] execVM "fn_simpleConv.sqf";
 
 RC_Officer enableAI "all"; 
 RC_Officer setBehaviourStrong "AWARE"; 
-RC_Officer doWatch RC_debugTarget01;
-RC_Officer doTarget RC_debugTarget01;
+RC_Officer doWatch player;
+RC_Officer doTarget player;
+// say
 
 // RC_Task4 = true to enable next scene via trigger and task! 
 RC_Task4 = true,
@@ -42,11 +75,14 @@ player addItemToUniform "30Rnd_556x45_Stanag";
 
 RC_Checker enableAI "all"; 
 RC_Checker setBehaviourStrong "AWARE"; 
-RC_Checker doWatch RC_debugTarget01;
-RC_Checker doTarget RC_debugTarget01;
+RC_Checker doWatch player;
+RC_Checker doTarget player;
 // Check how long the player has time to engage and shoot the officer and the barrels, adjust time if too short! 
 
-sleep 10; 
+sleep 7; 
+
+line1 = ["Officer", "Open Fire!", RC_Officer];
+[[line1], "GUER", 0.15, false] execVM "fn_simpleConv.sqf";
 
 if (alive RC_Officer) then {
     west setFriend [resistance, 0];
@@ -66,7 +102,7 @@ if (alive RC_Officer) then {
     RC_Officer doTarget player;
     RC_Officer fireAtTarget [player, currentWeapon RC_Officer];
 	RC_Checker enableAI "All"; 
-	
+	RC_Car setVelocityModelSpace [0, 0.01, 0];
 	// end here! 
 };
 //Palce here one end, that triggers after the sleep 8 seconds if the player hasen't reacted fast enough! 

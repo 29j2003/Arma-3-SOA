@@ -32,6 +32,8 @@ myFuelTank addEventHandler ["killed", {
 	RC_scaff01 hideObject true; 
 	RC_crater01 hideObject false;
 	RC_crater02 hideObject false;
+	RC_NPC allowDamage false;
+	player allowDamage false; 
 	
 	// finishes task 
 	RC_shotTanks = true;

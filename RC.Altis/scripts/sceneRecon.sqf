@@ -21,21 +21,26 @@ titleText ["<t align='center' font='PuristaBold' color='#FFFFFF' size='3' >29/P4
 
 
 sleep 3;
-["Stoka", "How bad?"] spawn BIS_fnc_showSubtitle;
+
+line1 = ["Stotska", "How bad?", RC_NPC];
+[[line1], "BLUFOR", 0.15, false] execVM "fn_simpleConv.sqf";
 
 RC_lightningBolt = true;
 
 sleep 4; 
 RC_lightningBolt = false;;
-["Costa", "More than we anticipated."] spawn BIS_fnc_showSubtitle;
+
+line1 = ["Costa", "More than we anticipated.", player];
+[[line1], "BLUFOR", 0.15, false] execVM "fn_simpleConv.sqf";
 
 sleep 6;
 
-["Stoka", "Then they may be aware of the invasion."] spawn BIS_fnc_showSubtitle;
+line1 = ["Stotska", "Then they may be aware of the invasion.", RC_NPC];
+[[line1], "BLUFOR", 0.15, false] execVM "fn_simpleConv.sqf";
 
 sleep 5; 
 
-
+// Status Report of Costa: 
 [
 	[
 		["Savro Costa", "align = 'left' shadow = '1' size = '0.7' font='PuristaBold'"],
@@ -53,9 +58,12 @@ sleep 5;
 	{ false },
 	true
 ] spawn BIS_fnc_typeText2;
+
 sleep 1;
 
-["Costa", "Could be."] spawn BIS_fnc_showSubtitle;
+line1 = ["Costa", "Could be.", player];
+[[line1], "BLUFOR", 0.15, false] execVM "fn_simpleConv.sqf";
+
 RC_NPC setDir ([RC_NPC, target2] call BIS_fnc_dirTo);
 
 rec = [] spawn PATH_Heli;
@@ -67,27 +75,50 @@ player enableSimulation true;
 player setDir ([player, target1] call BIS_fnc_dirTo);
 titleCut ["", "BLACK IN", 4];
 sleep 1;
-["Stoka", "Stay low - AAF helo inbound."] spawn BIS_fnc_showSubtitle;
+
+line1 = ["Stotska", "Stay low - AAF helo inbound.", RC_NPC];
+[[line1], "BLUFOR", 0.15, false] execVM "fn_simpleConv.sqf";
 
 5 fadeSound 1;
-sleep 5.8;
+sleep 6.4;
 RC_lightningBolt = true;
 titleText ["<t valign='middle' font='PuristaBold' color='#FFFFFF' size='4'>Siege of Altis</t>", "PLAIN", 0.7, true, true];
 sleep 3;
 RC_lightningBolt = false;
+
+
 // hier noch say3d/say hinzufügen
-["Costa", "Did it get visual on us?"] spawn BIS_fnc_showSubtitle;
+
+line1 = ["Costa", "Did it get visual on us?", player];
+[[line1], "BLUFOR", 0.15, false] execVM "fn_simpleConv.sqf";
+
 sleep 4; 
-["Stoka", "Unlikely – though waiting a bit more shouldn’t hurt."] spawn BIS_fnc_showSubtitle;
+
+line1 = ["Stotska", "Unlikely – though waiting a bit more shouldn’t hurt.", RC_NPC];
+[[line1], "BLUFOR", 0.15, false] execVM "fn_simpleConv.sqf";
+
 sleep 10; 
-["Costa", "I have never seen that much AAF presence in Kavala - at least not since the Civil War."] spawn BIS_fnc_showSubtitle;
+
+line1 = ["Costa", "I have never seen that much AAF presence in Kavala - at least not since the Civil War.", player];
+[[line1], "BLUFOR", 0.15, false] execVM "fn_simpleConv.sqf";
+
 sleep 7; 
-["Stoka", "Me neither."] spawn BIS_fnc_showSubtitle;
+
+line1 = ["Stotska", "Me neither.", RC_NPC];
+[[line1], "BLUFOR", 0.15, false] execVM "fn_simpleConv.sqf";
+
 sleep 12; 
-["Stoka", "Okay, we should be good to go."] spawn BIS_fnc_showSubtitle;
+
+line1 = ["Stotska", "Okay, we should be good to go.", RC_NPC];
+[[line1], "BLUFOR", 0.15, false] execVM "fn_simpleConv.sqf";
+
 sleep 4; 
-["Stoka", "Let's get out of here."] spawn BIS_fnc_showSubtitle;
+
+line1 = ["Stotska", "Let's get out of here.", RC_NPC];
+[[line1], "BLUFOR", 0.15, false] execVM "fn_simpleConv.sqf";
+
 sleep 2; 
+
 player playMove ""; 
 RC_NPC enableAI "all";
 [1, 3, false, true] call BIS_fnc_cinemaBorder;
