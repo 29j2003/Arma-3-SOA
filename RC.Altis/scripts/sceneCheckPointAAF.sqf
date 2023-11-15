@@ -46,7 +46,7 @@ sleep 5.5;
 RC_Checker setPosATL getPosATL RC_Checker;
 RC_Checker switchMove "Acts_WalkingChecking";  
 
-sleep 37;
+sleep 36;
 
 line1 = ["Officer", "Right now!", RC_Officer];
 [[line1], "GUER", 0.15, false] execVM "fn_simpleConv.sqf";
