@@ -1,1 +1,0 @@
-This is the main folder where all mission files, scripts, images, voice-acting and more will be stored in each seperate chapter (and later all in the full mission file). 
