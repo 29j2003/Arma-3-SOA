@@ -1,3 +1,4 @@
+// Scene script for players side of the CheckPoint
 line1 = ["Stotska", "A gun is underneath your seat - shoot at the fuel tanks if things go sideways.", RC_NPC];
 line2 = ["Costa", "I have a bad feeling about this.", player];
 

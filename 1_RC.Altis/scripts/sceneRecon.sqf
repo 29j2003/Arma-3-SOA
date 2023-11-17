@@ -1,23 +1,31 @@
 // Add to each showSubtitles a 3dSay or something alike for VA! 
-// Stoka = RC_NPC; Costa = player 
-
+// Stotska = RC_NPC; Costa = player 
 
 0 fadeSound 0;
 [0, 1, false, true] call BIS_fnc_cinemaBorder;
+
 player setDir ([player, target1] call BIS_fnc_dirTo);
 player switchMove "HubSpectator_stand";
 player switchMove "AwopPpneMstpSoptWbinDnon_non"; 
-titleCut ["", "BLACK FADED", 999];
 player setDir ([player, target1] call BIS_fnc_dirTo);
+
+titleCut ["", "BLACK FADED", 999];
+
 sleep 3; 
+
 RC_NPC setDir ([player, target1] call BIS_fnc_dirTo);
 RC_NPC disableAI "all";
+
 playMusic "Wasteland"; // Mby. changeout to something else later? 
+
 sleep 3;
+
 player enableSimulation false; 
+
 2 fadeSound 0.3;
 
-titleText ["<t align='center' font='PuristaBold' color='#FFFFFF' size='3' >29/P4TCH3R<br/>Presents</t>", "PLAIN", 0.9, true, true];  // 0.6 ist die Zeit wie lange es braucht bis weg, wird mal 10 multipliziert cause why not
+titleText ["<t align='center' font='PuristaBold' color='#FFFFFF' size='3' >29/P4TCH3R<br/>Presents</t>", "PLAIN", 0.9, true, true];  
+// 0.9 is the time that it shows up (x10) 
 
 
 sleep 3;
@@ -25,10 +33,10 @@ sleep 3;
 line1 = ["Stotska", "How bad?", RC_NPC];
 [[line1], "BLUFOR", 0.15, false] execVM "fn_simpleConv.sqf";
 
+// Lightning bolt triggers 
 RC_lightningBolt = true;
-
 sleep 4; 
-RC_lightningBolt = false;;
+RC_lightningBolt = false;
 
 line1 = ["Costa", "More than we anticipated.", player];
 [[line1], "BLUFOR", 0.15, false] execVM "fn_simpleConv.sqf";
@@ -65,14 +73,15 @@ line1 = ["Costa", "Could be.", player];
 [[line1], "BLUFOR", 0.15, false] execVM "fn_simpleConv.sqf";
 
 RC_NPC setDir ([RC_NPC, target2] call BIS_fnc_dirTo);
-
 rec = [] spawn PATH_Heli;
 
 player setDir ([player, target1] call BIS_fnc_dirTo);
 sleep 7;
 disableUserInput false; 
+
 player enableSimulation true;
 player setDir ([player, target1] call BIS_fnc_dirTo);
+
 titleCut ["", "BLACK IN", 4];
 sleep 1;
 

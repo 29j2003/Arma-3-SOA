@@ -1,7 +1,7 @@
 RC_Officer disableAI "all";  
 RC_Checker disableAI "all";
-// say3d + subs 
-RC_Officer switchMove "Acts_PercMstpSlowWrflDnon_handup2b";
+
+// Subtitles for RC_Officer; still needs say3d (or alike) 
 [] spawn
 {
 
@@ -31,6 +31,8 @@ RC_Officer switchMove "Acts_PercMstpSlowWrflDnon_handup2b";
 
 };
 
+// Animation set for RC_Officer at the checkpoint
+RC_Officer switchMove "Acts_PercMstpSlowWrflDnon_handup2b";
 [] spawn
 {
 	sleep 03.132;
@@ -42,20 +44,25 @@ RC_Officer switchMove "Acts_PercMstpSlowWrflDnon_handup2b";
 	RC_Officer playMove "Acts_Pointing_Front"; 
 };
 
+// Animation set for RC_Checker at the checkpoint
 sleep 5.5;
 RC_Checker setPosATL getPosATL RC_Checker;
 RC_Checker switchMove "Acts_WalkingChecking";  
-
 sleep 36;
 
 line1 = ["Officer", "Right now!", RC_Officer];
 [[line1], "GUER", 0.15, false] execVM "fn_simpleConv.sqf";
 
+// enabelsAI and targets the player (both AI units) 
 RC_Officer enableAI "all"; 
 RC_Officer setBehaviourStrong "AWARE"; 
 RC_Officer doWatch player;
 RC_Officer doTarget player;
-// say
+
+RC_Checker enableAI "all"; 
+RC_Checker setBehaviourStrong "AWARE"; 
+RC_Checker doWatch player;
+RC_Checker doTarget player;
 
 // RC_Task4 = true to enable next scene via trigger and task! 
 RC_Task4 = true,
@@ -73,10 +80,7 @@ player addItemToUniform "30Rnd_556x45_Stanag";
 player addItemToUniform "30Rnd_556x45_Stanag";
 
 
-RC_Checker enableAI "all"; 
-RC_Checker setBehaviourStrong "AWARE"; 
-RC_Checker doWatch player;
-RC_Checker doTarget player;
+
 // Check how long the player has time to engage and shoot the officer and the barrels, adjust time if too short! 
 
 sleep 7; 
@@ -103,6 +107,5 @@ if (alive RC_Officer) then {
     RC_Officer fireAtTarget [player, currentWeapon RC_Officer];
 	RC_Checker enableAI "All"; 
 	RC_Car setVelocityModelSpace [0, 0.01, 0];
-	// end here! 
+	// Add End here or let player die; 
 };
-//Palce here one end, that triggers after the sleep 8 seconds if the player hasen't reacted fast enough! 

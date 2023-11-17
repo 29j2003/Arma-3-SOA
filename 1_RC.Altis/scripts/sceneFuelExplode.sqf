@@ -1,8 +1,6 @@
-// Replace "myFuelTank" with the reference to your fuel tank
 
+// 
 myFuelTank = RC_fuelTankRust;
-
-// Replace "myAPC" with the reference to your APC
 myAPC = RC_apc;
 
 // Event handler to check if the fuel tank is destroyed and trigger a larger explosion with smoke and APC explosion
@@ -12,7 +10,7 @@ myFuelTank addEventHandler ["killed", {
     _fuelTank = _this select 0;
     _explosionPosition = getPos _fuelTank;
 
-    // Create and detonate a larger explosion
+    // creates and detonates a explosion
     _explosion = "Bo_GBU12_LGB" createVehicle _explosionPosition;
     _explosion setDamage 1;
 	
@@ -35,9 +33,9 @@ myFuelTank addEventHandler ["killed", {
 	RC_NPC allowDamage false;
 	player allowDamage false; 
 	
-	// finishes task 
+	// Condition to finish Task 04
 	RC_shotTanks = true;
-    // Replace "myAPC" with the reference to your APC
+    // 
     _apc = RC_apc;
 
     // Check if the APC is alive, then trigger its explosion
@@ -45,6 +43,6 @@ myFuelTank addEventHandler ["killed", {
 		_apc setDamage 1; 
     }
 
-    // You can add additional actions or effects here
+    // If needed, more scripts/smokes/explosions here: 
 }];
 

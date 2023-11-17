@@ -1,3 +1,6 @@
+// Scene with the player and RC_NPC from getting into the car till the checkpoint
+// still needs Say3D; and Costa lines! 
+
 [0, 9999999, true, true] call BIS_fnc_cinemaBorder;
 sleep 1; 
 
