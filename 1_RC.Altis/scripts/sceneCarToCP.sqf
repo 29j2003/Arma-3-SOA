@@ -8,9 +8,12 @@ line1 = ["Stotska", "And back to base we go.", RC_NPC];
 [[line1], "BLUFOR", 0.15, false] execVM "fn_simpleConv.sqf";
 
 sleep 6; 
+line1 = ["Costa", "Thats unconvienient.", player];
+[[line1], "BLUFOR", 0.15, false] execVM "fn_simpleConv.sqf";
 
-line1 = ["Stotska", "Fuck - of course somebody crashed.", RC_NPC];
+sleep 3; 
 
+line1 = ["Stotska", "Of course somebody crashed.", RC_NPC];
 [[line1], "BLUFOR", 0.15, false] execVM "fn_simpleConv.sqf";
 
 sleep 15; 
@@ -20,6 +23,10 @@ line1 = ["Stotska", "And they've closed down the other route.", RC_NPC];
 
 sleep 5; 
 
-line1 = ["Stotska", "I guess the only way is now through the checkpoint.", RC_NPC];
+line1 = ["Costa", "We are going through the checkpoint, aren't we?", player];
+[[line1], "BLUFOR", 0.15, false] execVM "fn_simpleConv.sqf";
 
+sleep 4;
+
+line1 = ["Stotska", "Yeah - be ready for anything...", RC_NPC];
 [[line1], "BLUFOR", 0.15, false] execVM "fn_simpleConv.sqf";

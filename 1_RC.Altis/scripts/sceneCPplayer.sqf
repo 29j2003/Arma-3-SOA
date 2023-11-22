@@ -1,5 +1,6 @@
 // Scene script for players side of the CheckPoint
-line1 = ["Stotska", "A gun is underneath your seat - shoot at the fuel tanks if things go sideways.", RC_NPC];
-line2 = ["Costa", "I have a bad feeling about this.", player];
 
+line1 = ["Costa", "I have a bad feeling about this.", player];
+
+line2 = ["Stotska", "If things go sideways - we go guns blazing.", RC_NPC];
 [[line1, line2], "BLUFOR", 0.1, false] execVM "fn_simpleConv.sqf";
