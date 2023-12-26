@@ -24,7 +24,7 @@ player enableSimulation false;
 
 2 fadeSound 0.3;
 
-titleText ["<t align='center' font='PuristaBold' color='#FFFFFF' size='3' >29/P4TCH3R<br/>Presents</t>", "PLAIN", 0.9, true, true];  
+titleText ["<t align='center' font='PuristaBold' color='#FFFFFF' size='3' >Team Valkyrie<br/>Presents</t>", "PLAIN", 0.9, true, true];  
 // 0.9 is the time that it shows up (x10) 
 
 
