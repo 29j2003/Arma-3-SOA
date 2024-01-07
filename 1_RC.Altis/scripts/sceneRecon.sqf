@@ -1,5 +1,5 @@
 // Add to each showSubtitles a 3dSay or something alike for VA! 
-// Stotska = RC_NPC; Costa = player 
+// Stotska = RC_NPC; You = player 
 
 0 fadeSound 0;
 [0, 1, false, true] call BIS_fnc_cinemaBorder;
@@ -24,7 +24,7 @@ player enableSimulation false;
 
 2 fadeSound 0.3;
 
-titleText ["<t align='center' font='PuristaBold' color='#FFFFFF' size='3' >Team Valkyrie<br/>Presents</t>", "PLAIN", 0.9, true, true];  
+titleText ["<t align='center' font='PuristaBold' color='#FFFFFF' size='2' >Team Valkyrie<br/>Presents</t>", "PLAIN", 0.9, true, true];  
 // 0.9 is the time that it shows up (x10) 
 
 
@@ -38,17 +38,17 @@ RC_lightningBolt = true;
 sleep 4; 
 RC_lightningBolt = false;
 
-line1 = ["Costa", "More than we anticipated.", player];
+line1 = ["You", "More than we anticipated.", player];
 [[line1], "BLUFOR", 0.15, false] execVM "fn_simpleConv.sqf";
 
 sleep 6;
 
-line1 = ["Stotska", "Then they may be aware of the invasion.", RC_NPC];
+line1 = ["Stotska", "They know about it.", RC_NPC];
 [[line1], "BLUFOR", 0.15, false] execVM "fn_simpleConv.sqf";
 
 sleep 5; 
 
-// Status Report of Costa: 
+// Status Report of player: 
 [
 	[
 		["Savro Costa", "align = 'left' shadow = '1' size = '0.7' font='PuristaBold'"],
@@ -69,7 +69,7 @@ sleep 5;
 
 sleep 1;
 
-line1 = ["Costa", "Could be.", player];
+line1 = ["You", "Could be.", player];
 [[line1], "BLUFOR", 0.15, false] execVM "fn_simpleConv.sqf";
 
 RC_NPC setDir ([RC_NPC, target2] call BIS_fnc_dirTo);
@@ -98,7 +98,7 @@ RC_lightningBolt = false;
 
 // hier noch say3d/say hinzufügen
 
-line1 = ["Costa", "Did it get visual on us?", player];
+line1 = ["You", "Did it get visual on us?", player];
 [[line1], "BLUFOR", 0.15, false] execVM "fn_simpleConv.sqf";
 
 sleep 4; 
@@ -108,7 +108,7 @@ line1 = ["Stotska", "Unlikely – though waiting a bit more shouldn’t hurt.", 
 
 sleep 10; 
 
-line1 = ["Costa", "I have never seen that much AAF presence in Kavala - at least not since the Civil War.", player];
+line1 = ["You", "I have never seen that much AAF presence in Kavala - at least not since the Civil War.", player];
 [[line1], "BLUFOR", 0.15, false] execVM "fn_simpleConv.sqf";
 
 sleep 7; 

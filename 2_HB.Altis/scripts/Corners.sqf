@@ -1,3 +1,4 @@
+// This is used in combination with a trigger to flatten a area on the map. 
 params ["_trigger", "_height", "_moveObjects"];
 
 _position = getPosWorld _trigger;

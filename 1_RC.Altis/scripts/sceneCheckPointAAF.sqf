@@ -31,6 +31,21 @@ RC_Checker disableAI "all";
 
 };
 
+[] spawn
+{
+	sleep 5;
+	
+	line1 = ["Stotska", "Do you see those fuel tanks?", RC_NPC];
+	[[line1], "BLUFOR", 0.10, false] execVM "fn_simpleConv.sqf";
+	
+	sleep 4;
+	line1 = ["You", "Yeah, what about them?", player];
+	[[line1], "BLUFOR", 0.10, false] execVM "fn_simpleConv.sqf";
+	
+	line1 = ["Stotska", "Shoot them when I say so.", RC_NPC];
+	[[line1], "BLUFOR", 0.15, false] execVM "fn_simpleConv.sqf";
+};
+
 // Animation set for RC_Officer at the checkpoint
 RC_Officer switchMove "Acts_PercMstpSlowWrflDnon_handup2b";
 [] spawn
@@ -53,16 +68,20 @@ sleep 36;
 line1 = ["Officer", "Right now!", RC_Officer];
 [[line1], "GUER", 0.15, false] execVM "fn_simpleConv.sqf";
 
+sleep 1; 
+line1 = ["Stotska", "Now Costa!", RC_NPC];
+[[line1], "BLUFOR", 0.15, false] execVM "fn_simpleConv.sqf";
+
 // enabelsAI and targets the player (both AI units) 
 RC_Officer enableAI "all"; 
-RC_Officer setBehaviourStrong "AWARE"; 
-RC_Officer doWatch player;
-RC_Officer doTarget player;
+RC_Officer setBehaviourStrong "COMBAT"; 
+RC_Officer doWatch RC_CarFakeTarget01;
+RC_Officer doTarget RC_CarFakeTarget01;
 
 RC_Checker enableAI "all"; 
-RC_Checker setBehaviourStrong "AWARE"; 
-RC_Checker doWatch player;
-RC_Checker doTarget player;
+RC_Checker setBehaviourStrong "COMBAT"; 
+RC_Checker doWatch RC_CarFakeTarget01;
+RC_Checker doTarget RC_CarFakeTarget01;
 
 // RC_Task4 = true to enable next scene via trigger and task! 
 RC_Task4 = true,
