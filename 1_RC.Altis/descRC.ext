@@ -1,0 +1,19 @@
+class CfgFunctions  
+{  
+    class RC  
+    {  
+        tag = "RC";   
+        class functions
+        {  
+            file = "functions"; 
+            class ambientFirefight  
+            {  
+                description = "AmbientFireFight function";  
+            };  
+			class Conv  
+            {  
+                description = "Modified Conversation function.";  
+            }; 
+        };  
+    }; 
+};

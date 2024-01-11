@@ -1,6 +1,7 @@
 // Add to each showSubtitles a 3dSay or something alike for VA! 
 // Stotska = RC_NPC; You = player 
 
+  
 0 fadeSound 0;
 [0, 1, false, true] call BIS_fnc_cinemaBorder;
 
@@ -11,66 +12,53 @@ player setDir ([player, target1] call BIS_fnc_dirTo);
 
 titleCut ["", "BLACK FADED", 999];
 
-sleep 3; 
+sleep 1; 
 
-RC_NPC setDir ([player, target1] call BIS_fnc_dirTo);
+RC_NPC setDir ([RC_NPC, target1] call BIS_fnc_dirTo);
+RC_NPC switchMove "AmovPpneMstpSnonWnonDnon"; 
 RC_NPC disableAI "all";
 
-playMusic "Wasteland"; // Mby. changeout to something else later? 
+//playMusic "Wasteland"; // Mby. changeout to something else later? 
+playMusic "LeadTrack01_F_Curator"; 
 
-sleep 3;
-
+sleep 1;
+playMusic "LeadTrack01_F_Curator";
 player enableSimulation false; 
 
+sleep 1; 
 2 fadeSound 0.3;
 
-titleText ["<t align='center' font='PuristaBold' color='#FFFFFF' size='2' >Team Valkyrie<br/>Presents</t>", "PLAIN", 0.9, true, true];  
+titleText ["<t align='center' valign='top' font='PuristaBold' color='#FFFFFF' size='2' >Team Valkyrie<br/>Presents</t>", "PLAIN", 0.9, true, true];  
 // 0.9 is the time that it shows up (x10) 
 
 
-sleep 3;
+sleep 5;
 
-line1 = ["Stotska", "How bad?", RC_NPC];
-[[line1], "BLUFOR", 0.15, false] execVM "fn_simpleConv.sqf";
+line1 = ["Stotska", "How bad?", RC_NPC, 3, 1, "3D"];
+[[line1], "BLUFOR", false, true] call RC_fnc_Conv;
 
 // Lightning bolt triggers 
 RC_lightningBolt = true;
-sleep 4; 
+sleep 3; 
 RC_lightningBolt = false;
 
-line1 = ["You", "More than we anticipated.", player];
-[[line1], "BLUFOR", 0.15, false] execVM "fn_simpleConv.sqf";
+line1 = ["You", "More than we anticipated.", player, 4, 1, "3D"];
+[[line1], "BLUFOR", false, true] call RC_fnc_Conv;
 
-sleep 6;
+sleep 4;
 
-line1 = ["Stotska", "They know about it.", RC_NPC];
-[[line1], "BLUFOR", 0.15, false] execVM "fn_simpleConv.sqf";
+line1 = ["Stotska", "They know about it then.", RC_NPC, 4, 1, "3D"];
+[[line1], "BLUFOR", false, true] call RC_fnc_Conv;
 
-sleep 5; 
+sleep 4; 
 
-// Status Report of player: 
-[
-	[
-		["Savro Costa", "align = 'left' shadow = '1' size = '0.7' font='PuristaBold'"],
-		["", "<br/>"],
-		["FIA - Special Forces", "align = 'left' shadow = '1' size = '0.7' font='PuristaBold'"],
-		["", "<br/>"],
-		["Assigment: Recon", "align = 'left' shadow = '1' size = '0.7' font='PuristaBold'"],
-		["", "<br/>"], // line break
-		["South-East of Kavala", "align = 'left' shadow = '1' size = '1.0'"]
-	],
-	-0.4, 2 / 2,
-	true,
-	"<t font='PuristaBold'>%1</t>",
-	[],
-	{ false },
-	true
-] spawn BIS_fnc_typeText2;
+line1 = ["You", "Could be.", player, 4, 1, "3D"];
+[[line1], "BLUFOR", false, true] call RC_fnc_Conv;
 
-sleep 1;
+sleep 3; 
 
-line1 = ["You", "Could be.", player];
-[[line1], "BLUFOR", 0.15, false] execVM "fn_simpleConv.sqf";
+titleText ["<t align='center' font='PuristaBold' color='#FFFFFF' size='4'>Siege of Altis</t>", "PLAIN", 0.7, true, true];
+
 
 RC_NPC setDir ([RC_NPC, target2] call BIS_fnc_dirTo);
 rec = [] spawn PATH_Heli;
@@ -82,49 +70,69 @@ disableUserInput false;
 player enableSimulation true;
 player setDir ([player, target1] call BIS_fnc_dirTo);
 
-titleCut ["", "BLACK IN", 4];
+titleCut ["", "BLACK IN", 5];
 sleep 1;
 
-line1 = ["Stotska", "Stay low - AAF helo inbound.", RC_NPC];
-[[line1], "BLUFOR", 0.15, false] execVM "fn_simpleConv.sqf";
+line1 = ["Stotska", "Stay low - bird inbound.", RC_NPC, 4, 1, "3D"];
+[[line1], "BLUFOR", false, true] call RC_fnc_Conv;
 
 5 fadeSound 1;
-sleep 6.4;
+sleep 1.5;
 RC_lightningBolt = true;
-titleText ["<t valign='middle' font='PuristaBold' color='#FFFFFF' size='4'>Siege of Altis</t>", "PLAIN", 0.7, true, true];
-sleep 3;
+
+// Status Report of player: 
+[
+	[
+		["Savro Costa", "align = 'left' shadow = '0' size = '0.8' font='PuristaBold'"],
+		["", "<br/>"],
+		["FIA - Special Forces", "align = 'left' shadow = '0' size = '0.8' font='PuristaBold'"],
+		["", "<br/>"],
+		["Assigment: Recon", "align = 'left' shadow = '0' size = '0.8' font='PuristaBold'"],
+		["", "<br/>"], // line break
+		["South-East of Kavala", "align = 'left' shadow = '0' size = '1.1'"]
+	],
+	-0.4, 2 / 2,
+	true,
+	"<t font='PuristaBold'>%1</t>",
+	[],
+	{ false },
+	true
+] spawn BIS_fnc_typeText2;
+
+sleep 5;
 RC_lightningBolt = false;
+
+[] spawn {25 fadeMusic 0; sleep 18; playMusic ""; 2 fadeMusic 1; playMusic ""}; // change out to something else later
 
 
 // hier noch say3d/say hinzufügen
-
-line1 = ["You", "Did it get visual on us?", player];
-[[line1], "BLUFOR", 0.15, false] execVM "fn_simpleConv.sqf";
+line1 = ["You", "Did it get any visual on us?", player, 3, 1, "3D"];
+[[line1], "BLUFOR", false, true] call RC_fnc_Conv;
 
 sleep 4; 
 
-line1 = ["Stotska", "Unlikely – though waiting a bit more shouldn’t hurt.", RC_NPC];
-[[line1], "BLUFOR", 0.15, false] execVM "fn_simpleConv.sqf";
+line1 = ["Stotska", "Doesn't appear so, though let's wait a bit.", RC_NPC, 6, 1, "3D"];
+[[line1], "BLUFOR", false, true] call RC_fnc_Conv;
 
 sleep 10; 
 
-line1 = ["You", "I have never seen that much AAF presence in Kavala - at least not since the Civil War.", player];
-[[line1], "BLUFOR", 0.15, false] execVM "fn_simpleConv.sqf";
+line1 = ["You", "I've never seen that much AAF presence here - at least not since the Civil War.", player, 5, 1, "3D"];
+[[line1], "BLUFOR", false, true] call RC_fnc_Conv;
 
-sleep 7; 
+sleep 6; 
 
-line1 = ["Stotska", "Me neither.", RC_NPC];
-[[line1], "BLUFOR", 0.15, false] execVM "fn_simpleConv.sqf";
+line1 = ["Stotska", "Yeah, something is up with that.", RC_NPC, 6, 1, "3D"];
+[[line1], "BLUFOR", false, true] call RC_fnc_Conv;
 
 sleep 12; 
 
-line1 = ["Stotska", "Okay, we should be good to go.", RC_NPC];
-[[line1], "BLUFOR", 0.15, false] execVM "fn_simpleConv.sqf";
+line1 = ["Stotska", "Okay, I think we waited long enough.", RC_NPC, 3, 1, "3D"];
+[[line1], "BLUFOR", false, true] call RC_fnc_Conv;
 
 sleep 4; 
 
-line1 = ["Stotska", "Let's get out of here.", RC_NPC];
-[[line1], "BLUFOR", 0.15, false] execVM "fn_simpleConv.sqf";
+line1 = ["Stotska", "Let's get out of here.", RC_NPC, 3, 1, "3D"];
+[[line1], "BLUFOR", false, true] call RC_fnc_Conv;
 
 sleep 2; 
 

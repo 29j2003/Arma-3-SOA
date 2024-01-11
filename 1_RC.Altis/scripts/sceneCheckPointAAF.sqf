@@ -102,14 +102,16 @@ player addItemToUniform "30Rnd_556x45_Stanag";
 
 // Check how long the player has time to engage and shoot the officer and the barrels, adjust time if too short! 
 
-sleep 7; 
-
-line1 = ["Officer", "Open Fire!", RC_Officer];
+line1 = ["Officer", "He's got a gun!", RC_Officer];
 [[line1], "GUER", 0.15, false] execVM "fn_simpleConv.sqf";
+
+sleep 5; 
 
 if (alive RC_Officer) then {
     west setFriend [resistance, 0];
     resistance setFriend [west, 0];
+	line1 = ["Officer", "Open Fire!", RC_Officer];
+	[[line1], "GUER", 0.15, false] execVM "fn_simpleConv.sqf";
 
     // Introduce a short delay (adjust as needed)
     sleep 1;
